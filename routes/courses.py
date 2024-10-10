@@ -13,10 +13,8 @@ router = APIRouter()
 
 @router.post("/courses", response_model=Courses)
 def create(courses: Courses):
-    res = repoCreate(courses)
-    return res
+    return repoCreate(courses)
 
-#@router.get("/courses", response_model=Courses)
 @router.get("/courses", response_model=List[Courses])
 def readAll():
     return repoReadAll()
@@ -32,7 +30,7 @@ def read(id: int):
 def update(id: int, courses: Courses):
     return repoUpdate(id, courses)
 
-@router.delete("/courses/{id}", response_model=Courses)
+@router.delete("/courses/{id}")
 def delete(id: int):
     repoDelete(id)
     return {"id": id}
