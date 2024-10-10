@@ -6,7 +6,7 @@ def create(module: Modules):
     cursor = connection.cursor()
     cursor.execute(
         "INSERT INTO modules (title, description) VALUES (%s, %s)",
-        (module.title, module.description, module.start_date, module.end_date, module.status)
+        (module.title, module.description)
     )
 
     module_id = cursor.lastrowid
